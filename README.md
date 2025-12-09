@@ -51,6 +51,6 @@ Official website for **Octagon Fury** — the most authentic MMA gaming experien
 
 ## 🖼️ Preview
 
-![Octagon Fury Website](images/octegon-fury.png)
+![Octagon Fury Website](images/Octegon-fury-website.png)
 
 **Master the octagon. Coming 2025.** 🥊
