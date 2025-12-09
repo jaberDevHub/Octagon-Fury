@@ -1,0 +1,292 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 4%;
+    --foreground: 0 0% 95%;
+
+    --card: 0 0% 7%;
+    --card-foreground: 0 0% 95%;
+
+    --popover: 0 0% 7%;
+    --popover-foreground: 0 0% 95%;
+
+    --primary: 0 73% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 43 35% 58%;
+    --secondary-foreground: 0 0% 7%;
+
+    --muted: 0 0% 12%;
+    --muted-foreground: 0 0% 60%;
+
+    --accent: 43 35% 58%;
+    --accent-foreground: 0 0% 7%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 15%;
+    --input: 0 0% 15%;
+    --ring: 0 73% 50%;
+
+    --radius: 0.5rem;
+
+    /* Custom tokens */
+    --metallic: 210 5% 62%;
+    --gold: 43 35% 58%;
+    --red-glow: 0 73% 50%;
+    --cage-dark: 0 0% 6%;
+    --octagon-canvas: 0 0% 10%;
+
+    /* Gradients */
+    --gradient-hero: linear-gradient(180deg, hsl(0 0% 4%) 0%, hsl(0 0% 8%) 50%, hsl(0 0% 4%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 10%) 0%, hsl(0 0% 6%) 100%);
+    --gradient-red: linear-gradient(135deg, hsl(0 73% 50%) 0%, hsl(0 73% 35%) 100%);
+    --gradient-gold: linear-gradient(135deg, hsl(43 50% 65%) 0%, hsl(43 35% 45%) 100%);
+    --gradient-metallic: linear-gradient(135deg, hsl(210 5% 70%) 0%, hsl(210 5% 45%) 100%);
+
+    /* Shadows */
+    --shadow-glow: 0 0 60px hsl(0 73% 50% / 0.3);
+    --shadow-gold: 0 0 40px hsl(43 35% 58% / 0.2);
+    --shadow-heavy: 0 25px 50px -12px hsl(0 0% 0% / 0.8);
+
+    --sidebar-background: 0 0% 6%;
+    --sidebar-foreground: 0 0% 95%;
+    --sidebar-primary: 0 73% 50%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 12%;
+    --sidebar-accent-foreground: 0 0% 95%;
+    --sidebar-border: 0 0% 15%;
+    --sidebar-ring: 0 73% 50%;
+  }
+
+  .dark {
+    --background: 0 0% 4%;
+    --foreground: 0 0% 95%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .font-display {
+    font-family: 'Bebas Neue', sans-serif;
+  }
+
+  .font-body {
+    font-family: 'Inter', sans-serif;
+  }
+
+  .text-gradient-red {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-red);
+  }
+
+  .text-gradient-gold {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-gold);
+  }
+
+  .text-gradient-metallic {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-metallic);
+  }
+
+  .bg-gradient-hero {
+    background: var(--gradient-hero);
+  }
+
+  .bg-gradient-card {
+    background: var(--gradient-card);
+  }
+
+  .glow-red {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .glow-gold {
+    box-shadow: var(--shadow-gold);
+  }
+
+  /* Carbon fiber texture */
+  .carbon-texture {
+    background-image: 
+      linear-gradient(45deg, hsl(0 0% 8%) 25%, transparent 25%),
+      linear-gradient(-45deg, hsl(0 0% 8%) 25%, transparent 25%),
+      linear-gradient(45deg, transparent 75%, hsl(0 0% 8%) 75%),
+      linear-gradient(-45deg, transparent 75%, hsl(0 0% 8%) 75%);
+    background-size: 4px 4px;
+    background-position: 0 0, 0 2px, 2px -2px, -2px 0px;
+  }
+
+  /* Cage mesh pattern */
+  .cage-pattern {
+    background-image: 
+      repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 20px,
+        hsl(0 0% 15% / 0.3) 20px,
+        hsl(0 0% 15% / 0.3) 21px
+      ),
+      repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 20px,
+        hsl(0 0% 15% / 0.3) 20px,
+        hsl(0 0% 15% / 0.3) 21px
+      );
+  }
+
+  /* Octagon border effect */
+  .octagon-border {
+    clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+  }
+
+  /* Animated underline */
+  .hover-underline {
+    @apply relative;
+  }
+
+  .hover-underline::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300;
+  }
+
+  .hover-underline:hover::after {
+    @apply w-full;
+  }
+}
+
+@layer utilities {
+  /* Screen shake animation */
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-2px); }
+    20%, 40%, 60%, 80% { transform: translateX(2px); }
+  }
+
+  .animate-shake {
+    animation: shake 0.5s ease-in-out;
+  }
+
+  /* Pulse glow */
+  @keyframes pulse-glow {
+    0%, 100% { 
+      box-shadow: 0 0 20px hsl(0 73% 50% / 0.3);
+    }
+    50% { 
+      box-shadow: 0 0 40px hsl(0 73% 50% / 0.6);
+    }
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  /* Slide up reveal */
+  @keyframes slide-up {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-slide-up {
+    animation: slide-up 0.8s ease-out forwards;
+  }
+
+  /* Stagger delays */
+  .delay-100 { animation-delay: 100ms; }
+  .delay-200 { animation-delay: 200ms; }
+  .delay-300 { animation-delay: 300ms; }
+  .delay-400 { animation-delay: 400ms; }
+  .delay-500 { animation-delay: 500ms; }
+
+  /* Metallic shine sweep */
+  @keyframes shine {
+    from {
+      background-position: -200% center;
+    }
+    to {
+      background-position: 200% center;
+    }
+  }
+
+  .metallic-shine {
+    background: linear-gradient(
+      90deg,
+      hsl(0 0% 20%) 0%,
+      hsl(0 0% 40%) 45%,
+      hsl(0 0% 60%) 50%,
+      hsl(0 0% 40%) 55%,
+      hsl(0 0% 20%) 100%
+    );
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 3s linear infinite;
+  }
+
+  /* Red line accent */
+  @keyframes red-pulse {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+  }
+
+  .red-line-pulse {
+    @apply bg-primary;
+    animation: red-pulse 2s ease-in-out infinite;
+  }
+
+  /* Fighter entrance */
+  @keyframes fighter-entrance {
+    0% {
+      opacity: 0;
+      transform: scale(1.1) translateY(20px);
+      filter: blur(10px);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+      filter: blur(0);
+    }
+  }
+
+  .animate-fighter-entrance {
+    animation: fighter-entrance 1.2s ease-out forwards;
+  }
+
+  /* Impact flash */
+  @keyframes impact {
+    0% { opacity: 0; transform: scale(0.8); }
+    50% { opacity: 1; transform: scale(1.05); }
+    100% { opacity: 1; transform: scale(1); }
+  }
+
+  .animate-impact {
+    animation: impact 0.4s ease-out forwards;
+  }
+}
