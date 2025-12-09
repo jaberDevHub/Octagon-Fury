@@ -23,7 +23,7 @@ const HeroSection = () => {
           {/* Pre-title */}
           <div className="opacity-0 animate-slide-up">
             <span className="inline-block px-4 py-1 bg-primary/20 border border-primary/50 rounded-sm text-primary text-xs font-semibold uppercase tracking-widest mb-6">
-              Coming 2025
+              Coming 2026
             </span>
           </div>
 

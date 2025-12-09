@@ -78,4 +78,4 @@
 - Responsive grid systems
 - Mobile-first design
 
-**Master the octagon. Coming 2025.** 🥊
+**Master the octagon. Coming 2026.** 🥊

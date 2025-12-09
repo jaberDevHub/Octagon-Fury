@@ -43,7 +43,7 @@ const Footer = () => {
               </span>
             </a>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              The most authentic MMA simulation ever created. Coming 2025.
+              The most authentic MMA simulation ever created. Coming 2026.
             </p>
           </div>
 
